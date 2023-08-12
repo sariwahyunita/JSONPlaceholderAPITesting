@@ -12,6 +12,15 @@ class PostAPI(APIClient):
     def get_by_id(self, post_id):
         return self.get(f"{self.base_url}/{post_id}")
 
-    def create_post(self, requestBody):
-        return self.post(f"{self.base_url}", data=requestBody)
+    def create_post(self, request_body):
+        return self.post(f"{self.base_url}", data=request_body)
+
+    def update_post(self, request_body, post_id):
+        return self.put(f"{self.base_url}/{post_id}", data=request_body)
+
+    def update_post_patch(self, request_body, post_id):
+        return self.patch(f"{self.base_url}/{post_id}", data=request_body)
+
+    def delete_post(self, post_id):
+        return self.delete(f"{self.base_url}/{post_id}")
 
